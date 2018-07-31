@@ -25,6 +25,7 @@ body{font-family: "Century Gothic";}
 #responsive-datatable .btn{font-size:12px; padding: 2px; height:30px;}
 #responsive-datatable th{padding: 2px; text-align: left;  font-size:12px;  width: 80px;}
 #responsive-datatable td{padding: 2px; text-align: left; font-size:11px; text-overflow: hidden; height: 10px; width: 80px !important;}
+#responsive-datatable tr{padding: 2px; text-align: left; font-size:11px; text-overflow: hidden; height: 20px; text-overflow:ellipsis; }
 
 #responsive-datatable_filter{float: left; margin-bottom: 5px; margin-left: 10px;}
 #responsive-datatable_length {float:left; padding:2px; width:50px !important; margin-top: -10px; }

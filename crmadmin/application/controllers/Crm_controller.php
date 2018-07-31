@@ -260,9 +260,11 @@ class Crm_controller extends CI_Controller{
 				$data['form'] = $this->Formbuildermodel->createdynamicform($structure, '3', 'project_leads', 'yes','projleadform');
 				$colhtm = "";
 				$colhtm .= "<th>Project No</th>";
+				$colhtm .= "<th>Bid Date</th>";
 				$colhtm .= "<th>Client Name</th>";
+				$colhtm .= "<th>Address</th>";
 				$colhtm .= "<th>Bid Value</th>";
-				$colhtm .= "<th>Project Status</th>";
+				$colhtm .= "<th>Status</th>";
 				$colhtm .= "<th>Created By</th>";
 				$colhtm .= "<th>Action</th>";
 				

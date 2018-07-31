@@ -21,6 +21,10 @@ class Projectleadcontrol extends CI_Controller{
 			}
 			elseif($value["name"] == "proj_no"){
 				$prjno = $value["value"];
+				$insert .= $value["name"] . "='" . $value["value"]."',";
+			}
+			elseif($value["name"] == "bid_value"){
+				$insert .= $value["name"] . "='" .preg_replace("/\.+$/i", "", preg_replace("/[^0-9\.]/i", "", $value["value"]))."',";
 			}
 			else{
 				$insert .= $value["name"] . "='" . addslashes($value["value"])."',";
@@ -91,7 +95,12 @@ class Projectleadcontrol extends CI_Controller{
 					}else{
 						$tdval = $val;
 					}
-					$newinnerarray[] = $tdval;
+					if($key == "bid_value"){
+						$newinnerarray[] = number_format($tdval,2);
+					}else{
+						$newinnerarray[] = $tdval;
+					}
+					
 				}
 				array_push($prjleads['data'], $newinnerarray);			
 				$newinnerarray = array();
@@ -127,8 +136,14 @@ class Projectleadcontrol extends CI_Controller{
 		//$uparray = array();
 		foreach ($decoded as $value) {
 			if($value["name"] != "id"){
-				$update .= $value["name"] . "='" . addslashes($value["value"])."',";
-			}else{
+				if($value["name"] == "bid_value"){
+					$update .= $value["name"] . "='" . preg_replace("/\.+$/i", "", preg_replace("/[^0-9\.]/i", "", $value["value"])) ."',";
+				}else{
+					$update .= $value["name"] . "='" . addslashes($value["value"])."',";
+				}
+			}
+			
+			else{
 				$id = addslashes($value["value"]);
 			}
 			$uparray[$value["name"]] = $value["value"];
